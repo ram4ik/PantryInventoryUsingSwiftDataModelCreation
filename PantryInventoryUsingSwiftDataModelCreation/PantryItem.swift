@@ -1,5 +1,5 @@
 //
-//  PentryItem.swift
+//  PantryItem.swift
 //  PantryInventoryUsingSwiftDataModelCreation
 //
 //  Created by Ramill Ibragimov on 5/10/24.
@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftData
 
 @Model
-final class PentryItem {
+final class PantryItem {
     var name: String
     var quantity: String
     var expirationDate: Date?
@@ -22,7 +22,7 @@ final class PentryItem {
     }
 }
 
-extension PentryItem {
+extension PantryItem {
     var displayExpDate: String {
         guard let expDate = expirationDate else {
             return ""
