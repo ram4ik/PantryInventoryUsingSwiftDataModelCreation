@@ -51,3 +51,21 @@ extension PantryItem {
         return .clear
     }
 }
+
+extension PantryItem {
+    @MainActor
+    static var mockData: ModelContainer {
+        let container = try! ModelContainer(for: PantryItem.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy"
+        
+        container.mainContext.insert(PantryItem(name: "Pasta", quantity: "1 lbs", expirationDate: dateFormatter.date(from: "05/01/24")))
+        
+        container.mainContext.insert(PantryItem(name: "Olive Oil", quantity: "200 oz", expirationDate: dateFormatter.date(from: "05/01/24")))
+        
+        container.mainContext.insert(PantryItem(name: "Snacks", quantity: "1 pack", expirationDate: dateFormatter.date(from: "06/01/24")))
+        
+        return container
+    }
+}

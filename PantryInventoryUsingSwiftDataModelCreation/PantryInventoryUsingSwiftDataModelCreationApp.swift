@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PantryInventoryUsingSwiftDataModelCreationApp: App {
@@ -13,5 +14,6 @@ struct PantryInventoryUsingSwiftDataModelCreationApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: PantryItem.self)
     }
 }
