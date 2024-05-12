@@ -54,6 +54,12 @@ struct AddUpdatePantryItem: View {
                         modelContext.insert(item)
                     }
                     
+                    do {
+                        try modelContext.save()
+                    } catch {
+                        print(error.localizedDescription)
+                    }
+                    
                     dismiss()
                 }
             }

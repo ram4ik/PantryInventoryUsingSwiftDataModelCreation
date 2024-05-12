@@ -14,6 +14,6 @@ struct PantryInventoryUsingSwiftDataModelCreationApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: PantryItem.self)
+        .modelContainer(for: PantryItem.self, isAutosaveEnabled: false)
     }
 }
