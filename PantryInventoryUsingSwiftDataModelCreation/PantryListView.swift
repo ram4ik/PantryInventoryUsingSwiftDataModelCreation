@@ -38,6 +38,22 @@ struct PantryListView: View {
                         }
                     }
                 }
+                
+                HStack {
+                    Button {
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    } label: {
+                        Text("Save all changes")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(modelContext.hasChanges == false)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
             }
             .navigationDestination(for: PantryItem.self) { value in
                 AddUpdatePantryItem(item: value)
